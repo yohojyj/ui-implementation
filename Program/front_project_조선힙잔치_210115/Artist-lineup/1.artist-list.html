@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            color: #333333;
+            font-family: 'Noto Sans KR', sans-serif, 'Noto Serif KR', serif;
+        }
+
+        /* .container{
+            width: 100%;
+        } */
+        header {
+            width: 100%;
+            height: 500px;
+            background: url('../image/backImg_header.jpg') no-repeat;
+            background-size: cover;
+            background-position-y: 80%;
+
+            color: #f8f6e7;
+            text-decoration: none;
+            text-align: center;
+            padding-top: 150px;
+            vertical-align: middle;
+            box-sizing: border-box;
+            /* background-color: blue; 이미지 작업 필요*/
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 60px;
+            font-family: 'Noto Serif KR';
+            line-height: 115px;
+            display: block;
+            text-shadow: 2px 2px 2px rgb(207, 243, 6);
+        }
+
+        header p {
+            margin: 0;
+            display: block;
+        }
+
+        nav {
+            position: fixed;
+            top: 400px;
+            left: -200px;
+            transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+        }
+
+        nav ul li {
+            display: inline-block;
+            /* float: left; */
+            margin: 20px;
+            color: #333;
+            font-weight: 100;
+            font-family: Noto Serif KR;
+            text-shadow: 1px 1px 1px lightgray;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            text-shadow: 1px 1px 1px lightgray;
+        }
+
+
+        section {
+            width: 100%;
+            /* margin: 0 auto; */
+            background: linear-gradient(to bottom right, rgb(226, 195, 195), rgb(211, 195, 250));
+            /* background:rgb(226, 195, 195); */
+            /* background-color: #1D1F6C; */
+            padding-bottom: 100px;
+
+        }
+
+        .title {
+            width: 80%;
+            height: 100px;
+            font-size: 25pt;
+            /* div 박스안에 padding을 줘서 내부에서 content(h2) 위치 조절 */
+            padding-top: 100px;
+            padding-left: 100px;
+            padding-bottom: 30px;
+            /* background-color: cornflowerblue; */
+            margin: 0 auto;
+        }
+
+        .title h2 {
+            margin: 0;
+            font-family: 'Noto Serif KR', serif;
+
+        }
+
+        .content {
+            width: 80%;
+            margin: 0 auto;
+            padding-left: 100px;
+            /* background-color:green; */
+        }
+
+        .artistWrap {
+            width: 400px;
+            height: 320px;
+            display: inline-block;
+            margin: 0 0px 20px 70px;
+            /* background-color: plum; */
+        }
+
+        .artist {
+            width: 400px;
+            height: 266px;
+            background-color: rgb(223, 135, 135);
+            box-shadow: 2px 2px 2px rgb(139, 139, 139);
+        }
+
+        .artist img {
+            -webkit-filter: grayscale(20%);
+            filter: gray;
+        }
+
+        .artist img:hover {
+            -webkit-filter: grayscale(0%);
+            filter: none;
+            opacity: 0.7;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+
+        }
+
+        .name {
+            box-sizing: border-box;
+            width: 400px;
+            height: 54px;
+            margin: 0;
+            padding: 15px;
+            text-align: center;
+            /* background-color: blueviolet; */
+        }
+
+        .name p {
+            margin: 0;
+        }
+
+        footer {
+            height: 150px;
+            background-color: #333333;
+            clear: both;
+           
+        }
+        .ftxt{
+            box-sizing: border-box;
+            padding-top: 50px;
+        
+        }
+
+        #ftext {
+            text-align: center;
+            color: #eee;
+            font-weight: lighter;
+            margin: 0;
+        }
+
+        #ftext a {
+            text-decoration: none;
+            color: #eee;
+            font-weight: lighter;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>ㅈㅗㅅㅓㄴㅎㅣㅂㅈㅏㄴㅊㅣ</h1>
+            <p>Korea Contemporary Traditional Arts Festival</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="../index.html#fifth">제작자 소감</a></li>
+                <li><a href="../index.html#fourth">상품구매</a></li>
+                <li><a href="../index.html#third">미니게임</a></li>
+                <li><a href="../index.html#second">예매</a></li>
+                <li><a href="../Artist-lineup/1.artist-list.html">아티스트 소개</a></li>
+            </ul>
+        </nav>
+
+        <section>
+
+            <div class="title">
+                <h2>아티스트 소개</h2>
+            </div>
+            <div class="content">
+                <div class="artistWrap">
+                    <div class="artist" id="artist1">
+                        <a href="2-1.artist1-page.html">
+                            <img src="../image/line-up/artist1_leenalchi.jpg" alt="이날치&앰비규어스댄스컴퍼니" width="400"
+                                height="266"></a>
+                    </div>
+                    <div class="name">
+                        <p>이날치&앰비규어스댄스컴퍼니</p>
+                    </div>
+                </div>
+
+                <div class="artistWrap">
+                    <div class="artist" id="artist2">
+                        <a href="2-2.artist2-page.html">
+                            <img src="../image/line-up/artist2_secondmoon.jpg" alt="두번째달&김준수" width="400"
+                                height="266"></a>
+                    </div>
+                    <div class="name">
+                        <p>두번째달&김준수</p>
+                    </div>
+                </div>
+
+                <div class="artistWrap">
+                    <div class="artist" id="artist3">
+                        <a href="2-3.artist3-page.html">
+                            <img src="../image/line-up/artist3_hyangyeon.jpg" alt="국립무용단-향연" width="400"
+                                height="266"></a>
+                    </div>
+                    <div class="name">
+                        <p>국립무용단-향연</p>
+                    </div>
+                </div>
+
+                <div class="artistWrap">
+                    <div class="artist" id="artist4">
+                        <a href="">
+                            <img src="../image/line-up/artist4_songsohee.jpg" alt="송소희" width="400" height="266"></a>
+                    </div>
+                    <div class="name">
+                        <p>송소희</p>
+                    </div>
+                </div>
+
+                <div class="artistWrap">
+                    <div class="artist" id="artist5">
+                        <a href="">
+                            <img src="../image/line-up/artist5_leeheemoon.jpg" alt="이희문컴퍼니" width="400"
+                                height="266"></a>
+                    </div>
+                    <div class="name">
+                        <p>이희문컴퍼니</p>
+                    </div>
+                </div>
+
+                <div class="artistWrap">
+                    <div class="artist" id="artist6">
+                        <a href="">
+                            <img src="../image/line-up/artist6_chunhyang.jpg" alt="국립창극단-춘향" width="400"
+                                height="266"></a>
+                    </div>
+                    <div class="name">
+                        <p>국립창극단-춘향</p>
+                    </div>
+                </div>
+
+                <div class="artistWrap">
+                    <div class="artist" id="artist7">
+                        <a href="">
+                            <img src="../image/line-up/artist7_seodoband.jpg" alt="서도밴드" width="400" height="266"></a>
+                    </div>
+                    <div class="name">
+                        <p>서도밴드</p>
+                    </div>
+                </div>
+
+                <div class="artistWrap">
+                    <div class="artist" id="artist8">
+                        <a href="">
+                            <img src="../image/line-up/artist8_Akdangwangchil.jpg" alt="악단광칠" width="400"
+                                height="266"></a>
+                    </div>
+                    <div class="name">
+                        <p>악단광칠</p>
+                    </div>
+                </div>
+
+                <div class="artistWrap">
+                    <div class="artist" id="artist9">
+                        <a href="">
+                            <img src="../image/line-up/artist9_jongmyo.jpg" alt="국립국악단-종묘제례악" width="400"
+                                height="266"></a>
+                    </div>
+                    <div class="name">
+                        <p>국립국악단-종묘제례악</p>
+                    </div>
+                </div>
+
+                <div class="artistWrap">
+                    <div class="artist" id="artist10">
+                        <a href="">
+                            <img src="../image/line-up/artist10_sangjaru.jpg" alt="상자루" width="400" height="266"></a>
+                    </div>
+                    <div class="name">
+                        <p>상자루</p>
+                    </div>
+                </div>
+
+                <div class="artistWrap">
+                    <div class="artist" id="artist11">
+                        <a href="">
+                            <img src="../image/line-up/artist11_sinbakcircle.jpg" alt="신박서클" width="400"
+                                height="266"></a>
+                    </div>
+                    <div class="name">
+                        <p>신박서클</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="ftxt">
+                <p id="ftext">COPYRIGHT 2021 Korea Contemporary Traditional Arts Festival | ALL RIGHTS RESERVED <br/>
+                    대성할 친구들 | <a href="mailto: bitcamp@bit.com"> bitcamp@bit.com</a></p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

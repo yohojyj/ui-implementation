@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+
+
+  <title>Memory Card Game</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: Dos;
+      src: url(DOSMyungjo.ttf)
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <h1> >>기억력 게임<< </h1>
+    <button id="slideToggleBtn"> >> 메 뉴 << </button>
+    <div id="nav">
+      <ul>
+        <li><a href="Artist-lineup/1.artist-list.html"> >> 아티스트 소개</a></li>
+        <li><a href="index.html#second"> >> 예매</a></li>
+        <li><a href="index.html#third"> >> 미니게임</a></li>
+        <li><a href="index.html#fourth"> >> 상품구매</a></li>
+        <li><a href="index.html#fifth"> >> 제작자 소감</a></li>
+      </ul>
+    </div>
+    <main>
+      <div class="card" data-type="turtle" data-matched="false">
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="card" data-type="tiger" data-matched="false">
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="card" data-type="rabbit" data-matched="false">
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="card" data-type="turtle" data-matched="false">
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="card" data-type="tiger" data-matched="false">
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="card" data-type="rabbit" data-matched="false">
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="card" data-type="turtle" data-matched="false">
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="card" data-type="tiger" data-matched="false">
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="card" data-type="rabbit" data-matched="false">
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="card" data-type="turtle" data-matched="false">
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="card" data-type="tiger" data-matched="false">
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+      <div class="card" data-type="rabbit" data-matched="false">
+        <div class="front"></div>
+        <div class="back"></div>
+      </div>
+  </div>
+  </main>
+
+  <!-- <div class="success">
+  <div class="success-icon" data-type="tiger">
+    <div class="front"></div>
+    <h2 class="success-msg">얼쑤!1000코인을 획득하겠습니다~</h2>
+    <div class="score"><div class="wins">Wins <span>0</span></div>
+    <div class="wins">Wins <span>0</span></div>
+  </div>
+  <button class="btn-continue">한 판 더?!</button>
+</div> -->
+
+  <!-- <참고소스> -->
+  <div class="success">
+    <div class="success-icon" data-type="coin10">
+      <div class="front"></div>
+    </div>
+    <h2 class="success-message">얼쑤!!</h2>
+    <div class="score">
+      <!-- <div class="turns">Turns <span>2</span></div>
+    <div class="attempts">Attempts <span>0</span></div>
+    <div class="wins">Wins <span>0</span></div>
+    <div class="attempts-overall">Attempts Overall <span>0</span></div> -->
+    </div>
+    <button class="btn-continue">한 번 더!!</button>
+  </div>
+
+  <!-- script를 head영역이 아닌 body 영역에 넣는 이유 : body 영역에 넣으면 더 빠르게 실행이 가능하다 -->
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>

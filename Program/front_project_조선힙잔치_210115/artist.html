@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>artist-goods-order</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="artist.css" />
+   
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btnSub").click(function () {
+                alert("주문이 접수되었습니다. 상세 정보는 입력하신 메일을 확인해주세요 ")
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html#fifth">제작자 소감</a></li>
+            <li><a href="index.html#fourth">상품구매</a></li>
+            <li><a href="index.html#third">미니게임</a></li>
+            <li><a href="index.html#second">예매</a></li>
+            <li><a href="Artist-lineup/1.artist-list.html">아티스트 소개</a></li>
+        </ul>
+    </nav>
+    <div class="contents">
+        <div style="padding:0;">
+
+            <div id="headarea">
+                <p id="headname">ㅇㅏㅌㅣㅅㅡㅌㅡ ㅅㅏㅇㅍㅜㅁ</p>
+                <p style="font-size: small;">Korean Contemporary Traditional Art Festival</p>
+            </div>
+
+        </div>
+
+        <div id="bottom">
+            <div class="eximg">
+                <img src="img/ag01.png" class="ag">
+                <img src="img/ag02.png" class="ag">
+
+            </div>
+            <form style="clear: both; width: 80%; margin-left: 80px;">
+                <fieldset>
+                    <legend>주문상세정보</legend>
+                    </br>
+                    <label id="a">종류선택 &nbsp; &nbsp; </label>
+                    <div style="display: block; float: left;">
+                        <label><input type="radio" name="op"> 1번)포토 보조배터리 &nbsp; </label>
+                        <label><input type="radio" name="op"> 2번)포토 보온 머그컵 &nbsp; </label>
+                    </div>
+                    </br></br>
+                    <label id="a">사진 첨부하기 &nbsp; &nbsp; </label> <input type="file">
+                    <!--1번 선택했을 때만 나오게 할 수 있나 ?? -->
+                    </br>
+                    </br>
+                    <label id="a">문구 입력하기 &nbsp; &nbsp; </label>
+                    <input type="text" style="width: 200px;" placeholder="문구는 20자 이내로 제한됩니다.">
+
+                    </br></br>
+                    <label id="a">수량 &nbsp; &nbsp;</label>
+                    <label><input type="number"> &nbsp; 개</label>
+                    </br></br>
+
+                    <label id="a">선물포장여부 &nbsp; &nbsp; </label>
+                    <div style="display: block; float: left;">
+                        <label><input type="radio" name="op1"> 예 <small> (2000원이 추가됩니다)&nbsp;&nbsp;
+                            </small></label>
+                        <label><input type="radio" name="op1"> 아니오&nbsp;&nbsp;</label>
+                    </div>
+                    </br></br>
+
+                    <label id="a">주문자 성함 &nbsp; &nbsp; </label> <input type="text">
+                    </br></br>
+                    <label id="a">주문자 이메일&nbsp; &nbsp; </label> <input type="email" placeholder="abc@abc.abc">
+
+
+
+                    </br></br>
+                    <div class="centered">
+                        <button type="reset">다시쓰기</button> &nbsp; &nbsp;&nbsp;
+                        <button type="submit" id="btnSub">제출하기</button>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+        <div>
+            <p style="width: 200px; height: 50px; border: 0;"></p>
+        </div>
+
+    </div>
+
+    <footer style="clear: both;">
+
+        <div style="padding-top: 20px; font-family: Noto Sans KR;">
+            <p id="ftext">COPYRIGHT 2021 Korea Contemporary Traditional Arts Festival | ALL RIGHTS RESERVED </p>
+            <p id="ftext">대성할 친구들 | <a href="mailto: bitcamp@bit.com"> bitcamp@bit.com</a>
+        </div>
+
+        <a href="#headarea">
+            <img src="img/topicon.png" class="icon">
+        </a>
+
+        
+        <a href="index.html#fourth">
+            <img src="img/topicon.png" class="backicon">
+        </a>
+
+
+    </footer>
+
+
+
+</body>
+
+</html>

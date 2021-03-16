@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            color: #333333;
+            font-family: 'Noto Sans KR', sans-serif, 'Noto Serif KR', serif;
+
+        }
+
+        header {
+            width: 100%;
+            height: 500px;
+            background: url('../image/backImg_header.jpg') no-repeat;
+            background-size: cover;
+            background-position-y: 80%;
+
+            color: #f8f6e7;
+            text-decoration: none;
+            text-align: center;
+            padding-top: 150px;
+            vertical-align: middle;
+            box-sizing: border-box;
+            /* background-color: blue; 이미지 작업 필요*/
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 60px;
+            font-family: 'Noto Serif KR';
+            line-height: 100px;
+            display: block;
+
+        }
+
+        header p {
+            margin: 0;
+            display: block;
+
+        }
+
+        nav {
+            position: fixed;
+            top: 400px;
+            left: -200px;
+            transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+        }
+
+        nav ul li {
+            display: inline-block;
+            /* float: left; */
+            margin: 20px;
+            color: #333;
+            font-weight: 100;
+            font-family: Noto Serif KR;
+            text-shadow: 1px 1px 1px lightgray;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            text-shadow: 1px 1px 1px lightgray;
+        }
+
+        section {
+            width: 100%;
+            margin: 0 auto;
+            background: linear-gradient(to bottom right, rgb(226, 195, 195), rgb(211, 195, 250));
+            /* background-color: yellow; */
+        }
+
+        .content {
+            width: 70%;
+            margin: 0 auto;
+            /* background-color: tomato; */
+        }
+
+        #wrap {
+            width: 90%;
+            height: 550px;
+            margin: 0 auto;
+            /* background-color: blue; */
+            display: block;
+            padding-bottom: 50px;
+        }
+
+        #textArea {
+            width: 600px;
+            height: 450px;
+            display: block;
+            float: right;
+            /* background-color: #cccccc; */
+            /* font-family: 'Noto Serif KR'; */
+            margin: 50px 0;
+            line-height: 26px;
+        }
+
+        #textArea h2 {
+            font-family: 'Noto Serif KR';
+            font-weight: 600;
+            text-shadow: 1px 1px 1px lightgray;
+        }
+
+        #artist_info {
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 1px lightgray;
+        }
+
+        #artist_image {
+            width: 500px;
+            height: 450px;
+            display: block;
+            float: left;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            /* background-color: gray; */
+        }
+
+        #videoArea {
+            width: 90%;
+            margin: 0 auto;
+            padding-bottom: 100px;
+        }
+
+        #artist_video {
+            position: relative;
+            width: 100%;
+            /*height: 100%는 적용x안됨*/
+            padding-bottom: 56.25%;
+            /*영상비율 16:9*/
+            margin: 0 auto;
+            clear: both;
+            background-color: cadetblue;
+        }
+
+        #artist_video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        footer {
+            height: 150px;
+            background-color: #333333;
+            clear: both;
+
+        }
+
+        .ftxt {
+            box-sizing: border-box;
+            padding-top: 50px;
+        }
+
+        #ftext {
+            text-align: center;
+            color: #eee;
+            font-weight: lighter;
+            margin: 0;
+        }
+
+        #ftext a {
+            text-decoration: none;
+            color: #eee;
+            font-weight: lighter;
+        }
+
+        /* ---- 이미지 스타일 ---- */
+        #bigImage {
+            width: 500px;
+            margin-bottom: 6px;
+        }
+
+        #big {
+            width: 500px;
+            height: 333px;
+        }
+
+        #smallImages {
+            width: 500px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .small {
+            width: 160px;
+            height: 106px;
+            float: left;
+            /*html에서 개행으로 인한 공백 발생 > 해소*/
+            margin-right: 10px;
+        }
+
+        .small:hover {
+            opacity: 0.5;
+        }
+
+        #small_3 {
+            margin-right: 0;
+        }
+
+        /* ----- 팝업 레이어----- */
+        .dim-layer {
+            display: none;
+            position: fixed;
+            /* position: absolute; */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+        }
+
+        .dim-layer .dimBg {
+            /* position: absolute; */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0.7;
+            filter: alpha(opacity=70);
+        }
+
+        .dim-layer .pop-layer {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 800px;
+            height: auto;
+            /* max-height: 800px; */
+            background-color: #000;
+            z-index: 10;
+        }
+
+        .pop-layer .pop-container {
+            padding: 5px;
+        }
+
+        .pop-conts>img {
+            width: 790px;
+        }
+
+
+        /* #popImg {
+            width: 790px;
+        } */
+
+        .pop-layer .btn {
+            width: 100%;
+            margin: 10px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid gray;
+            text-align: right;
+        }
+
+        a.btn-close {
+            display: inline-block;
+            height: 25px;
+            padding: 0 14px 0;
+            border: 1px solid #304a8a;
+            background-color: #3f5a9d;
+            font-size: 13px;
+            text-decoration: none;
+            color: #fff;
+            line-height: 25px;
+        }
+
+        a.btn-close:hover {
+            border: 1px solid #091940;
+            background-color: #1f326a;
+            color: #fff;
+        }
+    </style>
+    <script src="jquery-1.12.4.min.js"></script>
+
+    <script>
+
+        var popImage = ["../image/artist3_hyangyeon.jpg",
+            "../image/artist3_hyangyeon3.jpg",
+            "../image/artist3_hyangyeon2.jpg"];
+        var popImageSel = 0;
+
+        $(document).ready(function () {
+            //썸네일 이미지 크게보기
+            var $bigImg = $("#big");
+            $(".small").click(function () {
+                var imgSrc = $(this).attr('src');
+
+                $bigImg.attr('src', imgSrc);
+
+                var imgNum = $(this).attr('data-num');
+                popImageSel = parseInt(imgNum);
+            });
+
+            //팝업-레이어
+            var $popUp = $(".pop-layer");
+
+            $(".imgOpen").click(function () {
+                $("#popImg").attr("src", popImage[popImageSel]);
+
+                $(".dim-layer").show();
+
+                //레이어의 위치 : 화면이 커지면 top, left의 위치값도 증가
+                $popUp.css("top", Math.max(0, ($(window).height() - $popUp.outerHeight()) / 2) + "px");
+                $popUp.css("left", Math.max(0, ($(window).width() - $popUp.outerWidth()) / 2) + "px");
+            });
+
+            $(".btn-close").click(function (e) {
+                e.preventDefault();
+                $(".dim-layer").hide();
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <h1>ㅈㅗㅅㅓㄴㅎㅣㅂㅈㅏㄴㅊㅣ</h1>
+        <p>Korea Contemporary Traditional Arts Festival</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../index.html#fifth">제작자 소감</a></li>
+            <li><a href="../index.html#fourth">상품구매</a></li>
+            <li><a href="../index.html#third">미니게임</a></li>
+            <li><a href="../index.html#second">예매</a></li>
+            <li><a href="1.artist-list.html">아티스트 소개</a></li>
+        </ul>
+    </nav>
+    <section>
+        <div class="content">
+            <!-- 아티스트 이미지와 정보 -->
+            <div id="wrap">
+                <div id="artist_image">
+                    <div id="bigImage">
+                        <a href="#layer" class="imgOpen"><img id="big" src="../image/line-up/artist3_hyangyeon.jpg"
+                                alt="국립무용단-향연"></a>
+                    </div>
+                    <div id="smallImages">
+                        <img class="small" data-num="0" ; src="../image/line-up/artist3_hyangyeon.jpg">
+                        <img class="small" data-num="1" ; src="../image/artist3_hyangyeon3.jpg">
+                        <img class="small" data-num="2" ; id="small_3" src="../image/artist3_hyangyeon2.jpg">
+                    </div>
+                </div>
+
+                <div id="textArea">
+                    <hr />
+                    <br />
+                    <h2>국립무용단 : 향연</h2>
+                    <br /><br />
+                    <div id="artist_info">
+                        <p> 한국 전통춤을 옴니버스 형식으로 한데 모아 세련된 감각을 입힌 '향연'<br />
+                            향연은 사계절을 테마로 각 장이 하나의 계절을 상징하는 구성으로 이루어져 있다. 1막 봄, 2막 여름, 3막 가을, 4막 겨울.
+                            이 가운데에는 종묘제례의 범절과 의미를 담은 경건한 움직임부터 재간을 한껏 부린 신명 나는 디딤새까지 다양한 춤들이 한자리에 총출동한다.
+                            2015년 12월 국립극장 해오름극장에서 초연된 이래 지금까지 3년 연속 매진 신화를 기록한 작품이다.<br />
+                            정구호 연출은 정갈함, 그리고 간결함 속에 다가오는 고고한 기품을 대표적인 한국적 이미지로 꼽았으며, 이는 그가 향연을 제작하며 가장 드러내 보이고 싶은 부분이기도
+                            한다. 각각의 춤들이 갖고 있는 고유성을 한데 모아 하나의 작품으로 완성하고,절제된 형식미와 심플하고도 담백한 무대 구성으로 한국의 정체성을 보여주는 것이라 한다.
+                        </p>
+                        <br /><br />
+                        <hr />
+                    </div>
+                </div>
+            </div>
+
+            <!-- 아티스트 비디오 -->
+            <div id="videoArea">
+                <div id="artist_video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/2nU_rTmNDF8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- 팝업레이어 -->
+        <div class="dim-layer">
+            <div class="dimBg"></div>
+            <div id="layer" class="pop-layer">
+                <div class="pop-container">
+                    <div class="pop-conts">
+                        <div class="btn">
+                            <a herf="#" class="btn-close">Close</a>
+                        </div>
+
+                        <img id="popImg" src="../image/artist3_hyangyeon.jpg">
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="ftxt">
+            <p id="ftext">COPYRIGHT 2021 Korea Contemporary Traditional Arts Festival | ALL RIGHTS RESERVED <br/>
+                대성할 친구들 | <a href="mailto: bitcamp@bit.com"> bitcamp@bit.com</a></p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

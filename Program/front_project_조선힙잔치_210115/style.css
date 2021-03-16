@@ -1,0 +1,641 @@
+@font-face{
+src : url("DOSMyungjo.ttf");
+font-family: 'dos', cursive;}
+*{
+  font-family: 'dos', cursive;
+  margin:0;
+  padding:0;
+  cursor: url(사진/cursor.cur), auto !important; 
+  }
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-family: 'dos', cursive;
+  background: center/100% no-repeat url(사진/game_bg.jpg);
+  background-size: cover;
+  margin-left: 70px;
+}
+#container{
+  height: 100%;
+  width: 100%;
+ 
+}
+
+a{
+  text-decoration: none;
+  color:white;
+}
+
+h1{
+  font-family: 'dos', cursive;
+  text-align: center;
+  color:  yellow;
+  text-shadow: 3px 3px 5px rgb(1, 13, 121);
+  font-size: 80px;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  padding: 10px;
+  margin-left: -120px;
+  /* line-height: 2.2; */
+  /* background-color: rgba(10, 35, 41, 0.548); */
+  
+}
+.info {
+  position: relative;
+  width: 100%;
+  max-width: 950px;
+}
+
+main {
+  /* border: 3px solid #3d1c12; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  max-width: 950px;
+  margin: auto;
+  padding: 10px 3px 10px 3px;
+  /* border: 1px solid rgb(45, 157, 185); */
+  background-color: rgba(10, 35, 41, 0.644);
+  border-radius: 4px 4px 4px 4px;
+}
+
+.card ,
+.success-icon {
+  position: relative;
+  margin: 1%;
+  padding-top: 36px;
+  padding-left: 12px;
+  width: 120px;
+  height: 150px;
+  cursor: pointer;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  transition: -webkit-transform 0.4s ease-out;
+  transition: transform 0.4s ease-out;
+  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;
+  border-radius: 3px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 999;
+  opacity: 0;
+  -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+  transition: opacity 0.2s ease-out, -webkit-transform 0s 0.2s;
+  transition: opacity 0.2s ease-out, transform 0s 0.2s;
+  transition: opacity 0.2s ease-out, transform 0s 0.2s, -webkit-transform 0s 0.2s;
+}
+.success.is-visible {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 100px);
+          transform: translate3d(0, 0, 100px);
+  transition: opacity 0.2s ease-out, -webkit-transform 0s;
+  transition: opacity 0.2s ease-out, transform 0s;
+  transition: opacity 0.2s ease-out, transform 0s, -webkit-transform 0s;
+}
+.success .success-message {
+  color: rgb(0, 0, 0);
+  text-shadow: 0 0 4px #ccc, 0 -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px #f80, 2px -19px 18px #f20;
+  font-size: 3rem;
+}
+.is-selected,
+[data-matched=true] {
+  -webkit-transform: translate3d(0, 0, 0) rotateY(180deg);
+          transform: translate3d(0, 0, 0) rotateY(180deg);
+}
+
+[data-matched=true] {
+  -webkit-animation: matchSuccess 0.4s ease-out 3;
+          animation: matchSuccess 0.4s ease-out 3;
+}
+
+.is-visible .success-icon .front {
+  opacity: 1;
+  -webkit-animation: bounce 0.5s 0.4s ease-out forwards;
+          animation: bounce 0.5s 0.4s ease-out forwards;
+}
+
+.front,
+.back {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  box-shadow: -6px -6px 36px 2px rgba(0, 0, 0, 0.15) inset;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  overflow: hidden;
+}
+.front:before, .front:after,
+.back:before,
+.back:after {
+  content: "";
+  position: absolute;
+  top: 36px;
+  left: 12px;
+  width: 6px;
+  height: 6px;
+}
+
+.front {
+  background-color: white;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.back {
+  background-color: white;
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+}
+
+.back:before {
+ box-shadow: 36px 24px #ff6565, 42px 24px #ff6565, 48px 24px #ff6565, 54px 24px #ff6565, 60px 24px #ff6565
+ , 66px 24px #ff6565, 30px 30px #ff6565, 36px 30px #ff6565, 42px 30px #ff6565, 48px 30px #ff6565, 54px 30px #ff6565
+ , 60px 30px #ff6565, 66px 30px #ff6565, 72px 30px #ff6565, 24px 36px #ff6565, 30px 36px #ff6565, 36px 36px #ff6565
+ , 42px 36px #ff6565, 48px 36px #ff6565, 54px 36px #ff6565, 60px 36px #ff6565, 66px 36px #ff6565, 72px 36px #ff6565
+ , 78px 36px #ff6565, 18px 42px #ff6565, 24px 42px #ff6565, 30px 42px #ff6565, 36px 42px #ff6565, 42px 42px #ff6565
+ , 48px 42px #ff6565, 54px 42px #ff6565, 60px 42px #ff6565, 66px 42px #ff6565, 72px 42px #ff6565, 78px 42px #ff6565
+ , 84px 42px #ff6565, 18px 48px #ff6565, 24px 48px #ff6565, 30px 48px #ff6565, 36px 48px #ff6565, 42px 48px #ff6565
+ , 48px 48px #ff6565, 54px 48px #ff6565, 60px 48px #ff6565, 66px 48px #305496, 72px 48px #305496, 78px 48px #305496
+ , 84px 48px #ff6565, 18px 54px #305496, 24px 54px #ff6565, 30px 54px #ff6565, 36px 54px #ff6565, 42px 54px #ff6565
+ , 48px 54px #ff6565, 54px 54px #305496, 60px 54px #305496, 66px 54px #305496, 72px 54px #305496, 78px 54px #305496
+ , 84px 54px #305496, 18px 60px #305496, 24px 60px #305496, 30px 60px #ff6565, 36px 60px #ff6565, 42px 60px #ff6565
+ , 48px 60px #305496, 54px 60px #305496, 60px 60px #305496, 66px 60px #305496, 72px 60px #305496, 78px 60px #305496
+ , 84px 60px #305496, 24px 66px #305496, 30px 66px #305496, 36px 66px #305496, 42px 66px #305496, 48px 66px #305496
+ , 54px 66px #305496, 60px 66px #305496, 66px 66px #305496, 72px 66px #305496, 78px 66px #305496, 30px 72px #305496
+ , 36px 72px #305496, 42px 72px #305496, 48px 72px #305496, 54px 72px #305496, 60px 72px #305496, 66px 72px #305496
+ , 72px 72px #305496, 36px 78px #305496, 42px 78px #305496, 48px 78px #305496, 54px 78px #305496, 60px 78px #305496
+ , 66px 78px #305496;
+}
+[data-type="tiger"] .front:before {
+  box-shadow: 18px 12px #ffe699, 24px 12px #ffe699, 30px 12px #ffe699, 72px 12px #ffe699, 78px 12px #ffe699
+  , 84px 12px #ffe699, 18px 18px #ffe699, 24px 18px #f4b60b, 30px 18px #ffe699, 72px 18px #ffe699, 78px 18px #f4b60b
+  , 84px 18px #ffe699, 18px 24px #ffe699, 24px 24px #ffe699, 30px 24px #ffe699, 36px 24px #ffe699, 42px 24px #ffe699
+  , 48px 24px #5d460b, 54px 24px #5d460b, 60px 24px #ffe699, 66px 24px #ffe699, 72px 24px #ffe699, 78px 24px #ffe699
+  , 84px 24px #ffe699, 24px 30px #ffe699, 24px 30px #ffe699, 30px 30px #ffe699, 30px 30px #5d460b, 36px 30px #5d460b
+  , 42px 30px #5d460b, 48px 30px #5d460b, 54px 30px #5d460b, 60px 30px #5d460b, 66px 30px #5d460b, 72px 30px #ffe699, 78px 30px #ffe699
+  , 18px 36px #ffe699, 24px 36px #ffe699, 30px 36px #ffe699, 36px 36px #ffe699, 42px 36px #ffe699, 48px 36px #5d460b
+  , 54px 36px #5d460b, 60px 36px #ffe699, 66px 36px #ffe699, 72px 36px #ffe699, 78px 36px #ffe699, 84px 36px #ffe699
+  , 18px 42px #ffe699, 24px 42px #ffe699, 30px 42px #ffe699, 36px 42px #ffe699, 42px 42px #5d460b, 48px 42px #5d460b
+  , 54px 42px #5d460b, 60px 42px #5d460b, 66px 42px #ffe699, 72px 42px #ffe699, 78px 42px #ffe699, 84px 42px #ffe699
+  , 12px 48px #ffe699, 18px 48px #ffe699, 24px 48px #ffe699, 30px 48px #ffe699, 36px 48px #ffe699, 42px 48px #ffe699, 48px 48px #5d460b
+  , 54px 48px #5d460b, 60px 48px #ffe699, 66px 48px #ffe699, 72px 48px #ffe699, 78px 48px #ffe699, 84px 48px #ffe699, 90px 48px #ffe699
+  , 12px 54px #5d460b, 18px 54px #5d460b, 24px 54px #ffe699, 30px 54px #000000, 36px 54px #ffe699, 42px 54px #ffe699, 48px 54px #ffe699
+  , 54px 54px #ffe699, 60px 54px #ffe699, 66px 54px #ffe699, 72px 54px #000000, 78px 54px #ffe699, 84px 54px #5d460b, 90px 54px #5d460b
+  , 6px 60px  #ffe699, 12px 60px #ffe699, 18px 60px #ffe699, 24px 60px #ffe699, 30px 60px #ffe699, 36px 60px #ffe699, 42px 60px #ffe699, 48px 60px #ffe699
+  , 54px 60px #ffe699, 60px 60px #ffe699, 66px 60px #ffe699, 72px 60px #ffe699, 78px 60px #ffe699, 84px 60px #ffe699, 90px 60px #ffe699, 96px 60px #ffe699
+  , 6px 66px #5d460b, 12px 66px #5d460b, 18px 66px #5d460b, 24px 66px #5d460b, 30px 66px #ffe699, 36px 66px #ffe699, 42px 66px #ffffff, 48px 66px #5d460b
+  , 54px 66px #5d460b, 60px 66px #ffffff, 66px 66px #ffe699, 72px 66px #ffe699, 78px 66px #5d460b, 84px 66px #5d460b, 90px 66px #5d460b, 96px 66px #5d460b
+  , 12px 72px #ffe699, 18px 72px #ffe699, 24px 72px #ffe699, 30px 72px #ffe699, 36px 72px #ffe699, 42px 72px #ffffff, 48px 72px #ffffff
+  , 54px 72px #ffffff, 60px 72px #ffffff, 66px 72px #ffe699, 72px 72px #ffe699, 78px 72px #ffe699, 84px 72px #ffe699, 90px 72px #ffe699
+  , 12px 78px #5d460b, 18px 78px #5d460b, 24px 78px #ffe699, 30px 78px #ffe699, 36px 78px #ffe699, 42px 78px #ffe699, 48px 78px #f4b60b
+  , 54px 78px #f4b60b, 60px 78px #ffe699, 66px 78px #ffe699, 72px 78px #ffe699, 78px 78px #ffe699, 84px 78px #5d460b, 90px 78px #5d460b
+  , 24px 84px #ffe699, 30px 84px #ffe699, 36px 84px #ffe699, 42px 84px #ffe699, 48px 84px #ffe699
+  , 54px 84px #ffe699, 60px 84px #ffe699, 66px 84px #ffe699, 72px 84px #ffe699, 78px 84px #ffe699
+  , 36px 90px #ffe699, 42px 90px #ffe699, 48px 90px #ffe699
+  , 54px 90px #ffe699, 60px 90px #ffe699, 66px 90px #ffe699;
+}
+
+[data-type="turtle"] .front:before {
+  box-shadow:24px 12px #c4deb4, 30px 12px #c4deb4, 36px 12px #c4deb4
+  , 18px 18px #c4deb4, 24px 18px #c4deb4, 30px 18px #c4deb4, 36px 18px #c4deb4, 42px 18px #c4deb4, 66px 18px #c4deb4
+  , 12px 24px #c4deb4, 18px 24px #c4deb4, 24px 24px #000000, 30px 24px #c4deb4, 36px 24px #c4deb4, 42px 24px #c4deb4, 66px 24px #c4deb4, 72px 24px #c4deb4
+  , 12px 30px #c4deb4, 18px 30px #c4deb4, 24px 30px #c4deb4, 30px 30px #c4deb4, 36px 30px #c4deb4, 42px 30px #c4deb4
+  , 48px 30px #c9c9c9, 54px 30px #93c472, 60px 30px #588838, 66px 30px #93c472, 72px 30px #588838, 78px 30px #93c472
+  , 18px 36px #c4deb4, 24px 36px #c4deb4, 30px 36px #c4deb4, 36px 36px #c4deb4, 42px 36px #c9c9c9
+  , 48px 36px #93c472, 54px 36px #93c472, 60px 36px #588838, 66px 36px #93c472, 72px 36px #93c472, 78px 36px #588838, 84px 36px #93c472
+  , 36px 42px #c9c9c9, 42px 42px #93c472, 48px 42px #588838, 54px 42px #93c472, 60px 42px #588838, 66px 42px #93c472
+  , 72px 42px #588838, 78px 42px #93c472, 84px 42px #93c472, 90px 42px #93c472
+  , 36px 48px #c9c9c9, 42px 48px #588838, 48px 48px #93c472, 54px 48px #93c472, 60px 48px #93c472, 66px 48px #588838
+  , 72px 48px #93c472, 78px 48px #93c472, 84px 48px #93c472, 90px 48px #588838, 96px 48px #93c472
+  , 30px 54px #c4deb4, 36px 54px #c9c9c9, 42px 54px #93c472, 48px 54px #588838, 54px 54px #93c472, 60px 54px #588838, 66px 54px #93c472
+  , 72px 54px #588838, 78px 54px #93c472, 84px 54px #588838, 90px 54px #93c472, 96px 54px #588838
+  , 24px 60px #c4deb4, 30px 60px #c4deb4, 36px 60px #c9c9c9, 42px 60px #93c472, 48px 60px #93c472, 54px 60px #588838, 60px 60px #93c472, 66px 60px #93c472
+  , 72px 60px #93c472, 78px 60px #588838, 84px 60px #93c472, 90px 60px #93c472, 96px 60px #93c472
+  , 18px 66px #c4deb4, 24px 66px #c4deb4, 30px 66px #c4deb4, 36px 66px #c9c9c9, 42px 66px #c9c9c9, 48px 66px #588838, 54px 66px #93c472
+  , 60px 66px #588838, 66px 66px #93c472, 72px 66px #588838, 78px 66px #93c472, 84px 66px #588838, 90px 66px #93c472, 96px 66px #c9c9c9
+  , 42px 72px #c9c9c9, 48px 72px #c9c9c9, 54px 72px #93c472, 60px 72px #93c472, 66px 72px #588838
+  , 72px 72px #93c472, 78px 72px #93c472, 84px 72px #93c472, 90px 72px #588838, 96px 72px #c9c9c9
+  , 48px 78px #c9c9c9, 54px 78px #c9c9c9, 60px 78px #588838, 66px 78px #93c472
+  , 72px 78px #588838, 78px 78px #93c472, 84px 78px #588838, 90px 78px #c9c9c9, 96px 78px #c4deb4
+  , 54px 84px #c9c9c9, 60px 84px #c9c9c9, 66px 84px #c9c9c9, 72px 84px #c9c9c9, 78px 84px #c9c9c9, 84px 84px #c9c9c9, 90px 84px #93c472
+  , 54px 90px #c4deb4, 60px 90px #c4deb4, 66px 90px #c4deb4, 96px 90px #c4deb4 
+  , 48px 96px #c4deb4, 54px 96px #c4deb4;
+}
+
+[data-type="rabbit"] .front:before {
+  box-shadow: 30px 6px #facae2, 36px 6px #facae2, 66px 6px #facae2, 72px 6px #facae2
+  , 24px 12px #facae2, 30px 12px #facae2, 36px 12px #facae2, 42px 12px #facae2, 60px 12px #facae2, 66px 12px #facae2, 72px 12px #facae2, 78px 12px #facae2
+  , 18px 18px #facae2, 24px 18px #facae2, 30px 18px #facae2, 36px 18px #f298c1, 42px 18px #facae2
+  , 60px 18px #facae2, 66px 18px #f298c1, 72px 18px #facae2, 78px 18px #facae2, 84px 18px #facae2
+  , 18px 24px #facae2, 24px 24px #facae2, 30px 24px #facae2, 36px 24px #f298c1, 42px 24px #facae2
+  , 60px 24px #facae2, 66px 24px #f298c1, 72px 24px #facae2, 78px 24px #facae2, 84px 24px #facae2
+  , 24px 30px #facae2, 30px 30px #facae2, 36px 30px #f298c1, 42px 30px #facae2
+  , 60px 30px #facae2, 66px 30px #f298c1, 72px 30px #facae2, 78px 30px #facae2
+  , 24px 36px #facae2, 30px 36px #facae2, 36px 36px #f298c1, 42px 36px #facae2
+  , 60px 36px #facae2, 66px 36px #f298c1, 72px 36px #facae2, 78px 36px #facae2
+  , 30px 42px #facae2, 36px 42px #facae2, 42px 42px #facae2
+  , 60px 42px #facae2, 66px 42px #facae2, 72px 42px #facae2
+  , 30px 48px #facae2, 36px 48px #facae2, 42px 48px #facae2, 48px 48px #facae2
+  , 54px 48px #facae2, 60px 48px #facae2, 66px 48px #facae2, 72px 48px #facae2
+  , 24px 54px #facae2, 30px 54px #facae2, 36px 54px #facae2, 42px 54px #facae2, 48px 54px #facae2
+  , 54px 54px #facae2, 60px 54px #facae2, 66px 54px #facae2, 72px 54px #facae2, 78px 54px #facae2
+  , 18px 60px #facae2, 24px 60px #facae2, 30px 60px #facae2, 36px 60px #facae2, 42px 60px #facae2, 48px 60px #facae2
+  , 54px 60px #facae2, 60px 60px #facae2, 66px 60px #facae2, 72px 60px #facae2, 78px 60px #facae2, 84px 60px #facae2
+  , 18px 66px #facae2, 24px 66px #facae2, 30px 66px #facae2, 36px 66px #facae2, 42px 66px #facae2, 48px 66px #facae2
+  , 54px 66px #facae2, 60px 66px #facae2, 66px 66px #facae2, 72px 66px #facae2, 78px 66px #facae2, 84px 66px #facae2
+  , 18px 72px #facae2, 24px 72px #facae2, 30px 72px #facae2, 36px 72px #facae2, 42px 72px #000000, 48px 72px #facae2
+  , 54px 72px #facae2, 60px 72px #000000, 66px 72px #facae2, 72px 72px #facae2, 78px 72px #facae2, 84px 72px #facae2
+  , 18px 78px #facae2, 24px 78px #facae2, 30px 78px #facae2, 36px 78px #facae2, 42px 78px #ffffff, 48px 78px #f298c1
+  , 54px 78px #f298c1, 60px 78px #ffffff, 66px 78px #facae2, 72px 78px #facae2, 78px 78px #facae2, 84px 78px #facae2
+  , 24px 84px #facae2, 30px 84px #facae2, 36px 84px #facae2, 42px 84px #ffffff, 48px 84px #ffffff
+  , 54px 84px #ffffff, 60px 84px #ffffff, 66px 84px #facae2, 72px 84px #facae2, 78px 84px #facae2
+  , 30px 90px #facae2, 36px 90px #facae2, 42px 90px #facae2, 48px 90px #facae2
+  , 54px 90px #facae2, 60px 90px #facae2, 66px 90px #facae2, 72px 90px #facae2
+  , 42px 96px #facae2, 48px 96px #facae2, 54px 96px #facae2, 60px 96px #facae2;
+}
+/* 승리 시 나오는 카드 */
+[data-type="gold-coin"] .front:before {
+  box-shadow: 36px 18px #000000, 42px 18px #000000, 48px 18px #000000, 54px 18px #000000, 60px 18px #000000, 66px 18px #000000
+  , 24px 24px #000000, 30px 24px #000000, 36px 24px #ffd800, 42px 24px #ffd800, 48px 24px #ffd800, 54px 24px #ffd800
+  , 60px 24px #ffd800, 66px 24px #ffd800, 72px 24px #000000, 78px 24px #000000
+  , 18px 30px #000000, 24px 30px #ffd800, 30px 30px #ffd800, 36px 30px #fe9600, 42px 30px #fe9600, 48px 30px #fe9600
+  , 54px 30px #fe9600, 60px 30px #fe9600, 66px 30px #fe9600, 72px 30px #ffd800, 78px 30px #ffd800, 84px 30px #000000
+  , 12px 36px #000000, 18px 36px #ffd800, 24px 36px #fe9600, 30px 36px #fe9600, 36px 36px #ffd800, 42px 36px #ffd800, 48px 36px #ffd800
+  , 54px 36px #ffd800, 60px 36px #ffd800, 66px 36px #ffd800, 72px 36px #fe9600, 78px 36px #fe9600, 84px 36px #ffd800, 90px 36px #000000
+  , 12px 42px #000000, 18px 42px #ffd800, 24px 42px #fe9600, 30px 42px #ffd800, 36px 42px #ffd800, 42px 42px #fe9600, 48px 42px #fe9600
+  , 54px 42px #fe9600, 60px 42px #fe9600, 66px 42px #ffd800, 72px 42px #ffd800, 78px 42px #fe9600, 84px 42px #ffd800, 90px 42px #000000
+  , 12px 48px #000000, 18px 48px #ffd800, 24px 48px #fe9600, 30px 48px #ffd800, 36px 48px #ffd800, 42px 48px #fe9600, 48px 48px #fe9600
+  , 54px 48px #ffd800, 60px 48px #ffd800, 66px 48px #ffd800, 72px 48px #ffd800, 78px 48px #fe9600, 84px 48px #ffd800, 90px 48px #000000
+  , 12px 54px #000000, 18px 54px #ffd800, 24px 54px #fe9600, 30px 54px #ffd800, 36px 54px #ffd800, 42px 54px #fe9600, 48px 54px #fe9600
+  , 54px 54px #fe9600, 60px 54px #fe9600, 66px 54px #ffd800, 72px 54px #ffd800, 78px 54px #fe9600, 84px 54px #ffd800, 90px 54px #000000
+  , 12px 60px #000000, 18px 60px #ffd800, 24px 60px #fe9600, 30px 60px #fe9600, 36px 60px #ffd800, 42px 60px #ffd800, 48px 60px #ffd800
+  , 54px 60px #ffd800, 60px 60px #ffd800, 66px 60px #ffd800, 72px 60px #fe9600, 78px 60px #fe9600, 84px 60px #ffd800, 90px 60px #000000
+  , 12px 66px #fe9600, 18px 66px #000000, 24px 66px #ffd800, 30px 66px #ffd800, 36px 66px #fe9600, 42px 66px #fe9600, 48px 66px #fe9600
+  , 54px 66px #fe9600, 60px 66px #fe9600, 66px 66px #fe9600, 72px 66px #ffd800, 78px 66px #ffd800, 84px 66px #000000, 90px 66px #fe9600
+  , 12px 72px #000000, 18px 72px #fe9600, 24px 72px #000000, 30px 72px #000000, 36px 72px #ffd800, 42px 72px #ffd800, 48px 72px #ffd800
+  , 54px 72px #ffd800, 60px 72px #ffd800, 66px 72px #ffd800, 72px 72px #000000, 78px 72px #000000, 84px 72px #fe9600, 90px 72px #000000
+  , 18px 78px #000000, 24px 78px #fe9600, 30px 78px #fe9600, 36px 78px #000000, 42px 78px #000000, 48px 78px #000000
+  , 54px 78px #000000, 60px 78px #000000, 66px 78px #000000, 72px 78px #ffd800, 78px 78px #ffd800, 84px 78px #000000
+  , 24px 84px #000000, 30px 84px #000000, 36px 84px #ffd800, 42px 84px #fe9600, 48px 84px #ffd800
+  , 54px 84px #fe9600, 60px 84px #ffd800, 66px 84px #fe9600, 72px 84px #000000, 78px 84px #000000
+  , 36px 90px #000000, 42px 90px #000000, 48px 90px #000000, 54px 90px #000000, 60px 90px #000000, 66px 90px #000000;
+}
+[data-type="silver-coin"] .front:before {
+  box-shadow: 36px 18px #000000, 42px 18px #000000, 48px 18px #000000, 54px 18px #000000, 60px 18px #000000, 66px 18px #000000
+  , 24px 24px #000000, 30px 24px #000000, 36px 24px #efefef, 42px 24px #efefef, 48px 24px #efefef, 54px 24px #efefef
+  , 60px 24px #efefef, 66px 24px #efefef, 72px 24px #000000, 78px 24px #000000
+  , 18px 30px #000000, 24px 30px #efefef, 30px 30px #efefef, 36px 30px #adadad, 42px 30px #adadad, 48px 30px #adadad
+  , 54px 30px #adadad, 60px 30px #adadad, 66px 30px #adadad, 72px 30px #efefef, 78px 30px #efefef, 84px 30px #000000
+  , 12px 36px #000000, 18px 36px #efefef, 24px 36px #adadad, 30px 36px #adadad, 36px 36px #efefef, 42px 36px #efefef, 48px 36px #efefef
+  , 54px 36px #efefef, 60px 36px #efefef, 66px 36px #efefef, 72px 36px #adadad, 78px 36px #adadad, 84px 36px #efefef, 90px 36px #000000
+  , 12px 42px #000000, 18px 42px #efefef, 24px 42px #adadad, 30px 42px #efefef, 36px 42px #efefef, 42px 42px #adadad, 48px 42px #adadad
+  , 54px 42px #adadad, 60px 42px #adadad, 66px 42px #efefef, 72px 42px #efefef, 78px 42px #adadad, 84px 42px #efefef, 90px 42px #000000
+  , 12px 48px #000000, 18px 48px #efefef, 24px 48px #adadad, 30px 48px #efefef, 36px 48px #efefef, 42px 48px #adadad, 48px 48px #adadad
+  , 54px 48px #efefef, 60px 48px #efefef, 66px 48px #efefef, 72px 48px #efefef, 78px 48px #adadad, 84px 48px #efefef, 90px 48px #000000
+  , 12px 54px #000000, 18px 54px #efefef, 24px 54px #adadad, 30px 54px #efefef, 36px 54px #efefef, 42px 54px #adadad, 48px 54px #adadad
+  , 54px 54px #adadad, 60px 54px #adadad, 66px 54px #efefef, 72px 54px #efefef, 78px 54px #adadad, 84px 54px #efefef, 90px 54px #000000
+  , 12px 60px #000000, 18px 60px #efefef, 24px 60px #adadad, 30px 60px #adadad, 36px 60px #efefef, 42px 60px #efefef, 48px 60px #efefef
+  , 54px 60px #efefef, 60px 60px #efefef, 66px 60px #efefef, 72px 60px #adadad, 78px 60px #adadad, 84px 60px #efefef, 90px 60px #000000
+  , 12px 66px #adadad, 18px 66px #000000, 24px 66px #efefef, 30px 66px #efefef, 36px 66px #adadad, 42px 66px #adadad, 48px 66px #adadad
+  , 54px 66px #adadad, 60px 66px #adadad, 66px 66px #adadad, 72px 66px #efefef, 78px 66px #efefef, 84px 66px #000000, 90px 66px #adadad
+  , 12px 72px #000000, 18px 72px #adadad, 24px 72px #000000, 30px 72px #000000, 36px 72px #efefef, 42px 72px #efefef, 48px 72px #efefef
+  , 54px 72px #efefef, 60px 72px #efefef, 66px 72px #efefef, 72px 72px #000000, 78px 72px #000000, 84px 72px #adadad, 90px 72px #000000
+  , 18px 78px #000000, 24px 78px #adadad, 30px 78px #adadad, 36px 78px #000000, 42px 78px #000000, 48px 78px #000000
+  , 54px 78px #000000, 60px 78px #000000, 66px 78px #000000, 72px 78px #efefef, 78px 78px #efefef, 84px 78px #000000
+  , 24px 84px #000000, 30px 84px #000000, 36px 84px #efefef, 42px 84px #adadad, 48px 84px #efefef
+  , 54px 84px #adadad, 60px 84px #efefef, 66px 84px #adadad, 72px 84px #000000, 78px 84px #000000
+  , 36px 90px #000000, 42px 90px #000000, 48px 90px #000000, 54px 90px #000000, 60px 90px #000000, 66px 90px #000000;
+}
+[data-type="bronze-coin"] .front:before {
+  box-shadow: 36px 18px #000000, 42px 18px #000000, 48px 18px #000000, 54px 18px #000000, 60px 18px #000000, 66px 18px #000000
+, 24px 24px #000000, 30px 24px #000000, 36px 24px #c34900, 42px 24px #c34900, 48px 24px #c34900, 54px 24px #c34900
+, 60px 24px #c34900, 66px 24px #c34900, 72px 24px #000000, 78px 24px #000000
+, 18px 30px #000000, 24px 30px #c34900, 30px 30px #c34900, 36px 30px #991e00, 42px 30px #991e00, 48px 30px #991e00
+, 54px 30px #991e00, 60px 30px #991e00, 66px 30px #991e00, 72px 30px #c34900, 78px 30px #c34900, 84px 30px #000000
+, 12px 36px #000000, 18px 36px #c34900, 24px 36px #991e00, 30px 36px #991e00, 36px 36px #c34900, 42px 36px #c34900, 48px 36px #c34900
+, 54px 36px #c34900, 60px 36px #c34900, 66px 36px #c34900, 72px 36px #991e00, 78px 36px #991e00, 84px 36px #c34900, 90px 36px #000000
+, 12px 42px #000000, 18px 42px #c34900, 24px 42px #991e00, 30px 42px #c34900, 36px 42px #c34900, 42px 42px #991e00, 48px 42px #991e00
+, 54px 42px #991e00, 60px 42px #991e00, 66px 42px #c34900, 72px 42px #c34900, 78px 42px #991e00, 84px 42px #c34900, 90px 42px #000000
+, 12px 48px #000000, 18px 48px #c34900, 24px 48px #991e00, 30px 48px #c34900, 36px 48px #c34900, 42px 48px #991e00, 48px 48px #991e00
+, 54px 48px #c34900, 60px 48px #c34900, 66px 48px #c34900, 72px 48px #c34900, 78px 48px #991e00, 84px 48px #c34900, 90px 48px #000000
+, 12px 54px #000000, 18px 54px #c34900, 24px 54px #991e00, 30px 54px #c34900, 36px 54px #c34900, 42px 54px #991e00, 48px 54px #991e00
+, 54px 54px #991e00, 60px 54px #991e00, 66px 54px #c34900, 72px 54px #c34900, 78px 54px #991e00, 84px 54px #c34900, 90px 54px #000000
+, 12px 60px #000000, 18px 60px #c34900, 24px 60px #991e00, 30px 60px #991e00, 36px 60px #c34900, 42px 60px #c34900, 48px 60px #c34900
+, 54px 60px #c34900, 60px 60px #c34900, 66px 60px #c34900, 72px 60px #991e00, 78px 60px #991e00, 84px 60px #c34900, 90px 60px #000000
+, 12px 66px #991e00, 18px 66px #000000, 24px 66px #c34900, 30px 66px #c34900, 36px 66px #991e00, 42px 66px #991e00, 48px 66px #991e00
+, 54px 66px #991e00, 60px 66px #991e00, 66px 66px #991e00, 72px 66px #c34900, 78px 66px #c34900, 84px 66px #000000, 90px 66px #991e00
+, 12px 72px #000000, 18px 72px #991e00, 24px 72px #000000, 30px 72px #000000, 36px 72px #c34900, 42px 72px #c34900, 48px 72px #c34900
+, 54px 72px #c34900, 60px 72px #c34900, 66px 72px #c34900, 72px 72px #000000, 78px 72px #000000, 84px 72px #991e00, 90px 72px #000000
+, 18px 78px #000000, 24px 78px #991e00, 30px 78px #991e00, 36px 78px #000000, 42px 78px #000000, 48px 78px #000000
+, 54px 78px #000000, 60px 78px #000000, 66px 78px #000000, 72px 78px #c34900, 78px 78px #c34900, 84px 78px #000000
+, 24px 84px #000000, 30px 84px #000000, 36px 84px #c34900, 42px 84px #991e00, 48px 84px #c34900
+, 54px 84px #991e00, 60px 84px #c34900, 66px 84px #991e00, 72px 84px #000000, 78px 84px #000000
+, 36px 90px #000000, 42px 90px #000000, 48px 90px #000000, 54px 90px #000000, 60px 90px #000000, 66px 90px #000000;
+}
+[data-type="just-coin"] .front:before {
+  box-shadow: 36px 18px #000000, 42px 18px #000000, 48px 18px #000000, 54px 18px #000000, 60px 18px #000000, 66px 18px #000000
+, 24px 24px #000000, 30px 24px #000000, 36px 24px #f9fbfd, 42px 24px #f9fbfd, 48px 24px #f9fbfd, 54px 24px #f9fbfd
+, 60px 24px #f9fbfd, 66px 24px #f9fbfd, 72px 24px #000000, 78px 24px #000000
+, 18px 30px #000000, 24px 30px #f9fbfd, 30px 30px #f9fbfd, 36px 30px #7faabb, 42px 30px #7faabb, 48px 30px #7faabb
+, 54px 30px #7faabb, 60px 30px #7faabb, 66px 30px #7faabb, 72px 30px #f9fbfd, 78px 30px #f9fbfd, 84px 30px #000000
+, 12px 36px #000000, 18px 36px #f9fbfd, 24px 36px #7faabb, 30px 36px #7faabb, 36px 36px #f9fbfd, 42px 36px #f9fbfd, 48px 36px #f9fbfd
+, 54px 36px #f9fbfd, 60px 36px #f9fbfd, 66px 36px #f9fbfd, 72px 36px #7faabb, 78px 36px #7faabb, 84px 36px #f9fbfd, 90px 36px #000000
+, 12px 42px #000000, 18px 42px #f9fbfd, 24px 42px #7faabb, 30px 42px #f9fbfd, 36px 42px #f9fbfd, 42px 42px #7faabb, 48px 42px #7faabb
+, 54px 42px #7faabb, 60px 42px #7faabb, 66px 42px #f9fbfd, 72px 42px #f9fbfd, 78px 42px #7faabb, 84px 42px #f9fbfd, 90px 42px #000000
+, 12px 48px #000000, 18px 48px #f9fbfd, 24px 48px #7faabb, 30px 48px #f9fbfd, 36px 48px #f9fbfd, 42px 48px #7faabb, 48px 48px #7faabb
+, 54px 48px #f9fbfd, 60px 48px #f9fbfd, 66px 48px #f9fbfd, 72px 48px #f9fbfd, 78px 48px #7faabb, 84px 48px #f9fbfd, 90px 48px #000000
+, 12px 54px #000000, 18px 54px #f9fbfd, 24px 54px #7faabb, 30px 54px #f9fbfd, 36px 54px #f9fbfd, 42px 54px #7faabb, 48px 54px #7faabb
+, 54px 54px #7faabb, 60px 54px #7faabb, 66px 54px #f9fbfd, 72px 54px #f9fbfd, 78px 54px #7faabb, 84px 54px #f9fbfd, 90px 54px #000000
+, 12px 60px #000000, 18px 60px #f9fbfd, 24px 60px #7faabb, 30px 60px #7faabb, 36px 60px #f9fbfd, 42px 60px #f9fbfd, 48px 60px #f9fbfd
+, 54px 60px #f9fbfd, 60px 60px #f9fbfd, 66px 60px #f9fbfd, 72px 60px #7faabb, 78px 60px #7faabb, 84px 60px #f9fbfd, 90px 60px #000000
+, 12px 66px #7faabb, 18px 66px #000000, 24px 66px #f9fbfd, 30px 66px #f9fbfd, 36px 66px #7faabb, 42px 66px #7faabb, 48px 66px #7faabb
+, 54px 66px #7faabb, 60px 66px #7faabb, 66px 66px #7faabb, 72px 66px #f9fbfd, 78px 66px #f9fbfd, 84px 66px #000000, 90px 66px #7faabb
+, 12px 72px #000000, 18px 72px #7faabb, 24px 72px #000000, 30px 72px #000000, 36px 72px #f9fbfd, 42px 72px #f9fbfd, 48px 72px #f9fbfd
+, 54px 72px #f9fbfd, 60px 72px #f9fbfd, 66px 72px #f9fbfd, 72px 72px #000000, 78px 72px #000000, 84px 72px #7faabb, 90px 72px #000000
+, 18px 78px #000000, 24px 78px #7faabb, 30px 78px #7faabb, 36px 78px #000000, 42px 78px #000000, 48px 78px #000000
+, 54px 78px #000000, 60px 78px #000000, 66px 78px #000000, 72px 78px #f9fbfd, 78px 78px #f9fbfd, 84px 78px #000000
+, 24px 84px #000000, 30px 84px #000000, 36px 84px #f9fbfd, 42px 84px #7faabb, 48px 84px #f9fbfd
+, 54px 84px #7faabb, 60px 84px #f9fbfd, 66px 84px #7faabb, 72px 84px #000000, 78px 84px #000000
+, 36px 90px #000000, 42px 90px #000000, 48px 90px #000000, 54px 90px #000000, 60px 90px #000000, 66px 90px #000000;
+}
+#nav{
+  position: absolute;
+  top:300px;
+  left:15px;
+  line-height: 2;
+}
+#nav ul{
+  
+}
+#nav ul li{
+  display:block;
+  /* float:left; */
+  margin:13px;
+  color:#fff;
+  font-weight:100;
+  font-size: larger;
+  background-color: rgb(3, 3, 116);
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: rgb(255, 255, 255) 2px 2px 2px 0px;
+}
+
+
+#nav ul li:nth-child(1):hover{
+    background-color:  #b92814; 
+}
+#nav ul li:nth-child(2):hover{
+  background-color:  #9e6903; 
+}
+#nav ul li:nth-child(3):hover{
+  background-color:  #395e3b; 
+}
+#nav ul li:nth-child(4):hover{
+  background-color:  #385161; 
+}
+#nav ul li:nth-child(5):hover{
+  background-color:  #714187; 
+}
+
+#slideToggleBtn:hover{
+  background-color: rgb(228, 228, 228);
+}
+#slideToggleBtn{
+position: absolute;
+  font-size: x-large;
+  background-color: #fff;
+  /* font-family: 'dos', cursive; */
+  /* margin:13px; */
+  color: rgb(3, 3, 116);
+  padding: 10px;
+  top:240px;
+  left:35px;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: rgb(3, 3, 116) 2px 2px 2px 0px;
+}
+.btn-continue{
+  font-size: x-large;
+  background-color: #fff;
+  font-family: 'dos', cursive;
+  color: rgb(3, 3, 116);
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: gray 1px 1px 1px 0px;
+}
+/* //맞으면 띠옹띠옹 */
+@-webkit-keyframes matchSuccess {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0) rotateY(180deg) scale(1);
+            transform: translate3d(0, 0, 0) rotateY(180deg) scale(1);
+  }
+  50% {
+    -webkit-transform: translate3d(0, 0, 0) rotateY(180deg) scale(1.05);
+            transform: translate3d(0, 0, 0) rotateY(180deg) scale(1.05);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0) rotateY(180deg) scale(1);
+            transform: translate3d(0, 0, 0) rotateY(180deg) scale(1);
+  }
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+  }
+  20% {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+  }
+  40% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  60% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  80% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes bounce {
+  0% {
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+  }
+  20% {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+  }
+  40% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  60% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  80% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-webkit-keyframes shake {
+  2% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+  4% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  6% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  8% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  10% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  12% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  14% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  16% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  18% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+  20% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  22% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+}
+@keyframes shake {
+  2% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+  4% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  6% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  8% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  10% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  12% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  14% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  16% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  18% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+  20% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  22% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+}
+@-webkit-keyframes pulse {
+  50% {
+    opacity: 0.6;
+  }
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.6;
+  }
+}
+@media (max-width: 600px) {
+  .card {
+    padding-top: 18px;
+    padding-left: 6px;
+    width: 60px;
+    height: 75px;
+  }
+  .card .front:before,
+  .card .front:after,
+  .card .back:before,
+  .card .back:after {
+    top: 18px;
+    left: 6px;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+}
